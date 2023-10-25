@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PatientRepository extends CrudRepository<Patient,Long> {
-
+    // add find by email method
     public Patient findByEmail(String email);
 }
