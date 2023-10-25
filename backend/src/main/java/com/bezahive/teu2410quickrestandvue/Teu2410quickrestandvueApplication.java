@@ -17,8 +17,5 @@ public class Teu2410quickrestandvueApplication {
     public static void main(String[] args) {
         SpringApplication.run(Teu2410quickrestandvueApplication.class, args);
     }
-    @PostConstruct
-    void started() {
-        TimeZone.setDefault(TimeZone.getTimeZone("America/Bogota"));
-    }
+
 }
