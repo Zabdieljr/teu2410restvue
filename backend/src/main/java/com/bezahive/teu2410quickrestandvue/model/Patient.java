@@ -3,12 +3,14 @@ package com.bezahive.teu2410quickrestandvue.model;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.NumberFormat;
 
 import java.text.DateFormat;
+import java.util.Date;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table (name="patient_table")
 public class Patient {
     @Id
@@ -21,12 +23,11 @@ public class Patient {
     @NumberFormat
     private String pNo;
     private String gender;
-    @DateTimeFormat
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    private DateFormat createdDate;
-    @DateTimeFormat
+    private Date createdDate;
     @LastModifiedDate
-    private DateFormat accessedDate;
+    private Date accessedDate;
 
     public long getId() {
         return id;
@@ -68,19 +69,19 @@ public class Patient {
         this.gender = gender;
     }
 
-    public DateFormat getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(DateFormat createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
-    public DateFormat getAccessedDate() {
+    public Date getAccessedDate() {
         return accessedDate;
     }
 
-    public void setAccessedDate(DateFormat accessedDate) {
+    public void setAccessedDate(Date accessedDate) {
         this.accessedDate = accessedDate;
     }
 }

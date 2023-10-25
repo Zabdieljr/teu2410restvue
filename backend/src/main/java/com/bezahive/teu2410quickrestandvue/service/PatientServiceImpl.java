@@ -5,6 +5,7 @@ import com.bezahive.teu2410quickrestandvue.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
 import java.util.List;
 
 @Service
@@ -34,7 +35,14 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public Patient updatePatient(Patient patient) {
+        return patientRepository.save(patient);
+    }
+
+
+
+    @Override
     public Patient getPatientByEmail(String email) {
-        return patientRepository.findPatientByEmail(email);
+        return patientRepository.findByEmail(email);
     }
 }

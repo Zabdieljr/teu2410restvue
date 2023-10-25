@@ -16,8 +16,10 @@ public interface PatientService {
     public List<Patient> getPatients();
     // delete entity (void)
     public void deletePatient(long id);
+    public Patient updatePatient(Patient patient);
+
 
     // non repo class methods
-    public Patient getPatientByEmail (String email);
+    Patient getPatientByEmail(String email);
 
 }
